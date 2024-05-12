@@ -1,6 +1,7 @@
 on:
   push:
-    -main
+    branches:
+      - main
 name: Publish docs
 jobs:
   publishProjectDocs:
