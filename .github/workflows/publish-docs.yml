@@ -9,6 +9,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Debug Source Directory
+        run: |
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          ls -l $GITHUB_WORKSPACE/$source_dir
       - name: Build
         uses: andstor/jsdoc-action@v1.2.1
         with:
