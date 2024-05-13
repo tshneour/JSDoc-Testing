@@ -10,14 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
+      - name: Debug Source Directory
+        run: |
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
       - name: Build
-        uses: andstor/jsdoc-action@v1
+        uses: andstor/jsdoc-action@v1.2.1
         with:
-          source_dir: ./src
+          source_dir: ./folder
+          recurse: true
           output_dir: ./out
-          front_page: README.md
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
